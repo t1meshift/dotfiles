@@ -1,0 +1,4 @@
+rofi.combi-modi:    window,drun,ssh
+rofi.theme:         android_notification
+rofi.font:          Source Code Pro 9
+rofi.modi: combi
