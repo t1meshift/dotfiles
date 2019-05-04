@@ -20,5 +20,10 @@ That is the repository with my config files that are stored in case I would have
 + **Pipes**: `bash-pipes` from AUR
 + **Google Play Music Player**: [tuijam](https://github.com/cfangmeier/tuijam)
 
+## Nvim desktop entry
+Fixes opening files with Nvim from file manager.
+After installation you should update your desktop entries database:
+`update-desktop-database ~/.local/share/applications`
+
 ## TL;DR, I just want that config!
 Nope :octocat:
