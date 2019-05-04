@@ -207,12 +207,16 @@ exec --no-startup-id compton -b
 #xinput list-props "FocalTechPS/2 FocalTech Touchpad"
 exec_always --no-startup-id xinput set-prop $touchpadName "libinput Tapping Enabled" 1
 #Touchpad Enable Tapping
+
 exec_always --no-startup-id xinput set-prop $touchpadName "libinput Natural Scrolling Enabled" 1
 #Touchpad Enable Natural Scrolling
-exec_always --no-startup-id xinput set-prop $touchpadName "libinput Middle Emulation Enabled" 1
+
+exec_always --no-startup-id xinput set-prop $touchpadName "libinput Middle Emulation Enabled" 0
 #Touchpad Enable Middle Click Simulation
+
 exec_always --no-startup-id xinput set-prop $touchpadName "libinput Disable While Typing Enabled" 1
 #Touchpad Disable While Typing Enabled
+
 exec_always --no-startup-id xinput set-prop $touchpadName "libinput Horizontal Scroll Enabled" 1
 #Touchpad Horizontal Scrolling 
 
