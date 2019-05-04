@@ -270,7 +270,7 @@ format-warn-underline = ${colors.yellow1}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.yellow0}
 
 ramp-0 = 
 ramp-1 = 
