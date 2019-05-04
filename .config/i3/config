@@ -258,6 +258,10 @@ exec --no-startup-id nm-applet
 
 exec_always --no-startup-id nitrogen --restore
 
+# Assign social apps to their own workspace
+assign [class="VK"] $ws10
+assign [class="Telegram"] $ws10
+
 # Enable floating mode for certain apps
 for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
