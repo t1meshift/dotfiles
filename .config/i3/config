@@ -236,17 +236,17 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%   
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle         #mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5   # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5   # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 focus_follows_mouse no # TODO think about removing this line
 
 # Lockscreen
-exec_always xautolock -exit || xautolock -detectsleep -locker 'i3lock-fancy -gdpf Cantarell-Regular' -time $lockTimeout
+exec_always --no-startup-id xautolock -exit || xautolock -detectsleep -locker 'i3lock-fancy -gdpf Cantarell-Regular' -time $lockTimeout
 bindsym $mod+l exec xautolock -locknow 
 
-exec_always setxkbmap -layout us,ru
-exec_always setxkbmap -option "grp:win_space_toggle"
+exec_always --no-startup-id setxkbmap -layout us,ru
+exec_always --no-startup-id setxkbmap -option "grp:win_space_toggle"
 
 # Notifications
 exec --no-startup-id dunst
@@ -267,10 +267,10 @@ for_window [class="Arandr"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 
 # Player Controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 #Screenshoter
 set $screenshotTool $HOME/.config/i3/scripts/screenshot.sh
