@@ -1,7 +1,11 @@
 #!/bin/sh
-if ! update_cnt=$(pikaur -Qu 2> /dev/null | wc -l); then
-    update_cnt=0
+if ! repo_cnt=$(checkupdates 2> /dev/null | wc -l); then
+    repo_cnt=0
 fi
+if ! aur_cnt=$(pikaur -Qua 2> /dev/null | wc -l); then
+    aur_cnt=0
+fi
+update_cnt=$(("$aur_cnt" + "$repo_cnt"))
 if [ "$update_cnt" -gt 0 ]; then
     echo " $update_cnt"
 else
