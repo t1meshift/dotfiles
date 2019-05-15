@@ -47,7 +47,7 @@ secondary = ${colors.blue1}
 alert = ${colors.red1}
 
 [bar/t1meshift]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -145,6 +145,7 @@ mount-0 = /
 
 format-mounted-underline = ${colors.white0}
 label-mounted =  %free%
+fixed-values = true
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -177,7 +178,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
