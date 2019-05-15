@@ -15,6 +15,15 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+XTerm*background: #2b2b2b
+XTerm*foreground: #e7e7e7
+XTerm*pointerColor: #16A085
+XTerm*faceName: Fixed
+XTerm*faceSize: 9
+XTerm.termName: xterm-256color
+XTerm.vt100.faceName: Source Code Pro:size=9
+XTerm.vt100.font: 7x13
+
 ! special
 *.foreground:   #d0d0d0
 *.background:   #1c1c1c
