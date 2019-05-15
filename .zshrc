@@ -6,7 +6,11 @@
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='004'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='255'
-POWERLEVEL9K_MODE='awesome-fontconfig'
+if ! (tty | grep tty > /dev/null); then
+  #POWERLEVEL9K_MODE='nerdfont-fontconfig'
+  POWERLEVEL9K_MODE='awesome-fontconfig'
+  POWERLEVEL9K_LINUX_MANJARO_ICON=' ' # Nerd Font is awful sometimes
+fi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   os_icon
   dir
@@ -22,7 +26,10 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k" # agnoster by default
+ZSH_THEME="powerlevel10k/powerlevel10k" # agnoster by default
+if [ `tput colors` != "256" ]; then  
+  ZSH_THEME="michelebologna"  
+fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -81,7 +88,6 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-POWERLEVEL9K_LINUX_ICON=$'\uf312'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(
   main
   brackets
@@ -125,6 +131,8 @@ alias wlfix="sudo modprobe -r wl && sleep 2 && sudo modprobe wl"
 export TERMINAL="termite"
 export PATH="$PATH:/home/sh1ft/.dotnet/tools"
 
+# Prevent weird Ctrl+S and Ctrl+Q terminal behavior
+stty -ixon
 
 # added by travis gem
 [ -f /home/sh1ft/.travis/travis.sh ] && source /home/sh1ft/.travis/travis.sh
