@@ -82,3 +82,6 @@ else
     fi
 fi
 
+# restart polybar
+killall polybar
+i3-msg restart

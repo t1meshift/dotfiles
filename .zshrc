@@ -26,7 +26,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
 ZSH_THEME="powerlevel10k/powerlevel10k" # agnoster by default
+
 if [ `tput colors` != "256" ]; then  
   ZSH_THEME="michelebologna"  
 fi
@@ -127,7 +129,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ttlspoof="~/TTL_spoof.sh"
 alias chbranch="~/chbranch.sh"
+# Broadcom WLAN is a cheap piece of shit, so I had to run that """""fix""""" 
+# when it doesn't want to connect to my network
 alias wlfix="sudo modprobe -r wl && sleep 2 && sudo modprobe wl"
+alias fuck-rkn="sudo iptables -I INPUT -p tcp --tcp-flags RST RST -j DROP"
+
 export TERMINAL="termite"
 export PATH="$PATH:/home/sh1ft/.dotnet/tools"
 

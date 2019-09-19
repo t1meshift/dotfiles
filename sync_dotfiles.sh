@@ -3,7 +3,7 @@
 # Symlinks are for wimbs, real heroes use copy :)
 
 src=~
-dest=~/Документы/t1meshift-dotfiles
+dest=~/Documents/t1meshift-dotfiles
 dotfiles=(
     ".zshrc"
     ".Xresources"

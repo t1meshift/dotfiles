@@ -1,7 +1,7 @@
 #!/bin/sh
 # Thanks to AriosJentu
 # and me too
-Location=$HOME/Изображения/Screenshot`date +%Y-%m-%d_%H:%M:%S`.png
+Location=$(xdg-user-dir PICTURES)/Screenshot`date +%Y-%m-%d_%H:%M:%S`.png
 
 case "$1" in
     full)

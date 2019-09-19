@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 3.0.6
+###  vlc 3.0.7.1
 ###
 
 ###
@@ -234,33 +234,6 @@
 
 # Open GL/GLES hardware converter (string)
 #glconv=
-
-# Rendering intent for color conversion (integer)
-#rendering-intent=1
-
-# Display primaries (integer)
-#target-prim=0
-
-# Display gamma / transfer function (integer)
-#target-trc=0
-
-# Tone-mapping algorithm (integer)
-#tone-mapping=3
-
-# Tone-mapping parameter (float)
-#tone-mapping-param=0.000000
-
-# Tone-mapping desaturation coefficient (float)
-#tone-mapping-desat=0.500000
-
-# Highlight clipped pixels (boolean)
-#tone-mapping-warn=0
-
-# Dithering algorithm (integer)
-#dither-algo=-1
-
-# Dither depth override (0 = framebuffer depth) (integer)
-#dither-depth=0
 
 [flaschen] # Flaschen-Taschen video output
 
@@ -1401,7 +1374,7 @@
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 3.0.6 Vetinari
+#sout-avi-encoder=VLC Media Player - 3.0.7.1 Vetinari
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -1882,6 +1855,9 @@ qt-privacy-ask=0
 
 # Advanced options (string)
 #sout-avformat-options=
+
+# Reset timestamps (boolean)
+#sout-avformat-reset-ts=0
 
 [adaptive] # Unified adaptive streaming for DASH/HLS
 

@@ -201,9 +201,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Window title text align
+title_align left
+for_window [class=".*"] title_format "<b>%title</b>"
+# Firefox doesn't need title bar, actually
+for_window [class="(?i)firefox" window_role="browser"] border pixel 2
+#hide_edge_borders smart
+
 # Start Compton before polybar so it has a chance to become transparent
 # I want that AESTHETIC thing
-exec --no-startup-id compton -b
+exec --no-startup-id compton -b --dbus
 
 #xinput list-props "FocalTechPS/2 FocalTech Touchpad"
 exec_always --no-startup-id xinput set-prop $touchpadName "libinput Tapping Enabled" 1
@@ -240,18 +247,31 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%   
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle         #mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5   # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10   # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightness
 
 focus_follows_mouse no # TODO think about removing this line
 
-# As I still have GNOME installed, I need to launch its keyring and polkit daemons
-exec --no-startup-id gnome-keyring-daemon
+# Launch GNOME keyring and polkit daemons
+#exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Lockscreen
-exec_always --no-startup-id xautolock -exit || xautolock -detectsleep -locker 'i3lock-fancy -gdpf Cantarell-Regular' -time $lockTimeout
-bindsym $mod+l exec xautolock -locknow
+# Set your locker here
+#set $locker 'i3lock-fancy -gdpf Cantarell-Regular'
+set $locker 'mantablockscreen -sc'
+
+# xidlehook (lock timeout = 5)
+exec_always --no-startup-id $HOME/.config/i3/scripts/lockscreen.sh 5 $locker
+bindsym $mod+l exec --no-startup-id $HOME/.config/i3/scripts/lockNow.sh
+
+# xautolock 
+#exec_always --no-startup-id xautolock -exit || xautolock -detectsleep -locker $locker -time $lockTimeout
+#bindsym $mod+l exec xautolock -locknow
+
+# light-locker
+#exec_always --no-startup-id light-locker --late-locking
+#bindsym $mod+l exec --no-startup-id light-locker-command -l
 
 exec_always --no-startup-id setxkbmap -layout us,ru
 exec_always --no-startup-id setxkbmap -option "grp:win_space_toggle"
@@ -263,6 +283,10 @@ exec --no-startup-id dunst
 exec --no-startup-id pa-applet
 # Run NM applet to be able to manage WLAN
 exec --no-startup-id nm-applet
+# Run optimus-manager applet
+exec_always --no-startup-id optimus-manager-qt
+# udiskie
+exec --no-startup-id udiskie -s
 
 exec_always --no-startup-id nitrogen --restore
 
@@ -292,4 +316,4 @@ bindsym --release Ctrl+Print exec --no-startup-id sh $screenshotTool full clipbo
 bindsym --release Mod1+Print exec --no-startup-id sh $screenshotTool current
 bindsym --release Ctrl+Mod1+Print exec --no-startup-id sh $screenshotTool current clipboard
 
-# TODO run conky with some config
+bindsym --release XF86PowerOff exec --no-startup-id $HOME/.config/i3/scripts/shutdown.sh 
